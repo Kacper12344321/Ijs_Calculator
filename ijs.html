@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receptencalculator</title>
+    <link rel="stylesheet" href="ijs.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Receptencalculator</h1>
+            <p>Bereken eenvoudig je ijsrecept</p>
+        </header>
+
+        <main>
+            <section class="card">
+
+                <h2>Ingrediëntenpercentages</h2>
+
+                <label for="sugar">Suiker (%)</label>
+                <input type="number" id="sugar" min="0" step="any" placeholder="Bijvoorbeeld 15">
+
+                <label for="fat">Vet (%)</label>
+                <input type="number" id="fat" min="0" step="any" placeholder="Bijvoorbeeld 8">
+
+                <label for="vvmb">VVMB (%)</label>
+                <input type="number" id="vvmb" min="0" step="any" placeholder="Bijvoorbeeld 10">
+
+                <label for="dry">Overige droge stof (%)</label>
+                <input type="number" id="dry" min="0" step="any" placeholder="Bijvoorbeeld 5">
+
+            </section>
+
+            <section class="card">
+
+                <h2>Gewenste waarden</h2>
+
+                <label for="pod">Gewenste POD-waarde</label>
+                <input type="number" id="pod" step="any" placeholder="Geef de gewenste POD">
+
+                <label for="pac">Gewenste PAC-waarde</label>
+                <input type="number" id="pac" step="any" placeholder="Geef de gewenste PAC">
+
+            </section>
+
+            <button onclick="calculateRecipe()">
+                Bereken recept
+            </button>
+
+            <section class="card results" id="results" hidden>
+
+                <h2>Resultaten</h2>
+
+                <p id="ingredientTotal"></p>
+                <p id="podResult"></p>
+                <p id="pacResult"></p>
+                <p id="calculationStatus"></p>
+
+            </section>
+
+        </main>
+
+        <footer>
+            <p>Receptencalculator © 2026</p>
+        </footer>
+
+    </div>
+
+    <script src="ijs.js"></script>
+
+</body>
+</html>
