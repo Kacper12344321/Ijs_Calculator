@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dolce Gelato | Ambachtelijk ijs</title>
+
+    <meta name="description"
+        content="Ontdek het heerlijke ambachtelijke ijs van Dolce Gelato. Vers, natuurlijk en met liefde gemaakt.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Trebuchet MS', Arial, sans-serif;
+            background: #fffaf3;
+            color: #49291f;
+            line-height: 1.6;
+        }
+
+        :root {
+            --pink: #f5b7c2;
+            --dark-pink: #d94d69;
+            --cream: #fffaf3;
+            --brown: #49291f;
+            --light: #fff0e5;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            background: var(--cream);
+            padding: 15px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px #49291f15;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: var(--brown);
+        }
+
+        .logo span {
+            color: var(--dark-pink);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--brown);
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--dark-pink);
+        }
+
+        .nav-button {
+            background: var(--dark-pink);
+            color: white !important;
+            padding: 10px 22px;
+            border-radius: 30px;
+        }
+
+        .menu-toggle {
+            display: none;
+            border: none;
+            background: none;
+            color: var(--brown);
+            font-size: 27px;
+            cursor: pointer;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 480px;
+            background: linear-gradient(110deg, #f4a9b9, #f9d5c8);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 65px 8%;
+            gap: 30px;
+        }
+
+        .hero-text {
+            max-width: 550px;
+        }
+
+        .hero h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(40px, 6vw, 68px);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 21px;
+            margin-bottom: 30px;
+        }
+
+        .hero-image {
+            font-size: clamp(120px, 20vw, 220px);
+            text-align: center;
+            filter: drop-shadow(8px 12px 10px #49291f30);
+        }
+
+        .button {
+            display: inline-block;
+            background: var(--dark-pink);
+            color: white;
+            padding: 14px 27px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .button:hover {
+            background: var(--brown);
+            transform: translateY(-3px);
+        }
+
+        /* FEATURES */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            padding: 35px 7%;
+            background: var(--cream);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .feature {
+            padding: 10px;
+        }
+
+        .feature-icon {
+            font-size: 35px;
+        }
+
+        .feature h3 {
+            margin-top: 8px;
+            font-size: 17px;
+        }
+
+        .feature p {
+            color: #806d63;
+            font-size: 14px;
+        }
+
+        /* GENERAL SECTIONS */
+
+        section.content {
+            padding: 75px 8%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: Georgia, serif;
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .section-description {
+            color: #806d63;
+            margin-bottom: 40px;
+        }
+
+        /* FLAVOURS */
+
+        .flavours {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .flavour-card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px #49291f12;
+            transition: 0.3s;
+        }
+
+        .flavour-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .flavour-picture {
+            height: 170px;
+            display: grid;
+            place-items: center;
+            font-size: 85px;
+        }
+
+        .vanilla { background: #f7e4bb; }
+        .chocolate { background: #c99b7a; }
+        .strawberry { background: #f6b3bd; }
+        .pistachio { background: #c7d69d; }
+        .mango { background: #ffd28a; }
+        .lemon { background: #f5e99b; }
+        .caramel { background: #d6a078; }
+        .blueberry { background: #c4c2e9; }
+
+        .flavour-info {
+            padding: 18px;
+        }
+
+        .flavour-info h3 {
+            font-size: 21px;
+            margin-bottom: 5px;
+        }
+
+        .flavour-info p {
+            color: #806d63;
+            font-size: 14px;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            gap: 55px;
+            text-align: left;
+        }
+
+        .about-icon {
+            font-size: 150px;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .about-text {
+            max-width: 650px;
+        }
+
+        .about-text h2 {
+            font-family: Georgia, serif;
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: #705b50;
+        }
+
+        /* VISIT */
+
+        .visit-box {
+            background: #f6c0ca;
+            border-radius: 22px;
+            padding: 40px;
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .visit-box h2 {
+            font-family: Georgia, serif;
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .visit-details {
+            margin: 25px 0;
+        }
+
+        .visit-details p {
+            margin: 8px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: var(--brown);
+            color: white;
+            padding: 35px 8%;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 7px;
+        }
+
+        footer a {
+            color: #ffd1da;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 65px;
+                left: 0;
+                width: 100%;
+                background: var(--cream);
+                padding: 25px;
+                flex-direction: column;
+                gap: 20px;
+                box-shadow: 0 5px 10px #49291f15;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .flavours {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .flavours {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 50px 6%;
+            }
+
+            section.content {
+                padding: 55px 6%;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .visit-box {
+                padding: 25px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <div class="logo">🍦 Dolce <span>Gelato</span></div>
+
+        <button class="menu-toggle"
+            id="menuToggle"
+            aria-label="Menu openen"
+            aria-expanded="false">
+            ☰
+        </button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#smaken">Onze smaken</a>
+            <a href="#over">Over ons</a>
+            <a href="#contact">Contact</a>
+            <a href="#contact" class="nav-button">Kom langs!</a>
+        </div>
+    </nav>
+
+
+    <!-- HERO SECTION -->
+
+    <header class="hero" id="home">
+
+        <div class="hero-text">
+            <h1>Welkom bij Dolce Gelato!</h1>
+
+            <p>
+                Ambachtelijk ijs, met liefde gemaakt.
+                Ontdek onze heerlijke smaken en geniet
+                van een momentje voor jezelf!
+            </p>
+
+            <a href="#smaken" class="button">
+                Ontdek onze smaken →
+            </a>
+        </div>
+
+        <div class="hero-image" aria-hidden="true">
+            🍨
+        </div>
+
+    </header>
+
+
+    <!-- FEATURES -->
+
+    <div class="features">
+
+        <div class="feature">
+            <div class="feature-icon">🌿</div>
+            <h3>Natuurlijke ingrediënten</h3>
+            <p>Met zorg geselecteerd</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🍦</div>
+            <h3>Ambachtelijk bereid</h3>
+            <p>Met passie gemaakt</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">❤️</div>
+            <h3>Met liefde voor ijs</h3>
+            <p>Voor iedereen iets lekkers</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">❄️</div>
+            <h3>Altijd vers</h3>
+            <p>Elke dag genieten</p>
+        </div>
+
+    </div>
+
+
+    <!-- FLAVOURS -->
+
+    <section class="content" id="smaken">
+
+        <h2 class="section-title">Onze smaken</h2>
+
+        <p class="section-description">
+            Van klassiekers tot verrassende combinaties.
+            Ontdek jouw favoriete smaak!
+        </p>
+
+        <div class="flavours">
+
+            <div class="flavour-card">
+                <div class="flavour-picture vanilla">🍦</div>
+                <div class="flavour-info">
+                    <h3>Vanille</h3>
+                    <p>Een heerlijke romige klassieker.</p>
+                </div>
+            </div>
+
+            <div class="flavour-card">
+                <div class="flavour-picture chocolate">🍫</div>
+                <div class="flavour-info">
+                    <h3>Chocolade</h3>
+                    <p>Volle chocoladesmaak voor echte liefhebbers.</p>
+                </div>
+            </div>
+
+            <div class="flavour-card">
+                <div class="flavour-picture strawberry">🍓</div>
+                <div class="flavour-info">
+                    <h3>Aardbei</h3>
+                    <p>Fruitig, fris en heerlijk zoet.</p>
+                </div>
+            </div>
+
+            <div class="flavour-card">
+                <div class="flavour-picture pistachio">🥜</div>
+                <div class="flavour-info">
+                    <h3>Pistache</h3>
+                    <p>Een bijzondere nootachtige smaak.</p>
+                </div>
+            </div>
+
+            <div class="flavour-card">
+                <div class="flavour-picture mango">🥭</div>
+                <div class="flavour-info">
+                    <h3>Mango</h3>
+                    <p>Tropisch en heerlijk verfrissend.</p>
+                </div>
+            </div>
+
+            <div class="flavour-card">
+                <div class="flavour-picture lemon">🍋</div>
+                <div class="flavour-info">
+                    <h3>Citroen</h3>
+                    <p>Fris en licht zuur.</p>
+                </div>
+            </div>
+
+            <div class="flavour-card">
+                <div class="flavour-picture caramel">🍮</div>
+                <div class="flavour-info">
+                    <h3>Karamel</h3>
+                    <p>Zoete karamel met een zachte smaak.</p>
+                </div>
+            </div>
+
+            <div class="flavour-card">
+                <div class="flavour-picture blueberry">🫐</div>
+                <div class="flavour-info">
+                    <h3>Blauwe bes</h3>
+                    <p>Een fruitige en verrassende smaak.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT US -->
+
+    <section class="content about" id="over">
+
+        <div class="about-icon" aria-hidden="true">
+            🍨
+        </div>
+
+        <div class="about-text">
+
+            <h2>Over Dolce Gelato</h2>
+
+            <p>
+                Welkom bij Dolce Gelato! Wij geloven dat
+                een lekker ijsje iedereen blij kan maken.
+            </p>
+
+            <p>
+                Onze ijssalon staat voor kwaliteit,
+                gezelligheid en heerlijke smaken.
+                We willen iedereen een fijn moment bezorgen,
+                met een lekker ijsje in de hand.
+            </p>
+
+            <p>
+                Of je nu kiest voor een klassieke vanille,
+                chocolade of een verrassende fruitsmaak:
+                bij ons is er voor ieder wat wils!
+            </p>
+
+            <a href="#contact" class="button">
+                Bezoek onze ijssalon
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="content" id="contact">
+
+        <div class="visit-box">
+
+            <h2>Kom jij ook langs?</h2>
+
+            <p>
+                Zin in een heerlijk ijsje?
+                We verwelkomen je graag bij Dolce Gelato!
+            </p>
+
+            <div class="visit-details">
+
+                <!-- VERVANG DEZE GEGEVENS DOOR JULLIE EIGEN GEGEVENS -->
+
+                <p>📍 Adres: Kronenburgstraat 32</p>
+
+                <p>🕒 Openingsuren: 12:00-20:00</p>
+
+                <p>📧 E-mail: dolcegelato@gmail.com</p>
+
+            </div>
+
+            <a href="mailto:dolcegelato@gmail.com" class="button">
+                Stuur ons een e-mail
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h2>🍦 Dolce Gelato</h2>
+
+        <p>Een beetje geluk in elk bolletje!</p>
+
+        <p>
+            <a href="#home">Home</a> |
+            <a href="#smaken">Onze smaken</a> |
+            <a href="#over">Over ons</a> |
+            <a href="#contact">Contact</a>
+        </p>
+
+        <p class="copyright">
+            © 2026 Dolce Gelato. Alle rechten voorbehouden.
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", function () {
+
+            const isOpen = navLinks.classList.toggle("active");
+
+            menuToggle.setAttribute("aria-expanded", isOpen);
+            menuToggle.textContent = isOpen ? "✕" : "☰";
+
+        });
+
+        // Close the mobile menu after clicking a link
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", function () {
+
+                navLinks.classList.remove("active");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.textContent = "☰";
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
